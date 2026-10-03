@@ -32,7 +32,7 @@ jobs:
           mkdir _site && cp -R src/public/. _site/
           cp -R site/. _site/
           rm -f _site/_redirects
-          curl -fL --retry 3 -o _site/Annakuber/Savora.apk https://github.com/AbhiramUpadrashta/Savora/releases/latest/download/Savora.apk
+          curl -fL --retry 3 -o _site/Annakuber/Savora.apk https://github.com/AbhiramUpadrashta/Savora/releases/latest/download/Savora.apk || curl -fL --retry 3 -o _site/Annakuber/Savora.apk https://raw.githubusercontent.com/AbhiramUpadrashta/Savora/android/Savora.apk
           cp _site/Annakuber/Savora.apk _site/Annakuber/Annakuber.apk
           touch _site/.nojekyll
           echo -n "${{ steps.c.outputs.sha }}" > _site/build.txt
