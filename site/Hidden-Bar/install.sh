@@ -1,6 +1,6 @@
 #!/bin/bash
 # Veilon installer — downloads the latest Veilon and puts it in Applications.
-# Usage:  curl -fsSL https://bubbles-hq.netlify.app/veilon/install.sh | bash
+# Usage:  curl -fsSL https://abhiramupadrashta.github.io/Veilon/install.sh | bash
 # Copyright © 2026 Abhiram Upadrashta — MIT License
 set -e
 URL="https://github.com/AbhiramUpadrashta/Veilon/releases/latest/download/Veilon.zip"

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Brevio installer for macOS - downloads the latest Brevio and puts it in Applications.
-# Usage:  curl -fsSL https://bubbles-hq.netlify.app/brevio/install.sh | bash
+# Usage:  curl -fsSL https://abhiramupadrashta.github.io/Brevio/install.sh | bash
 # Copyright (c) 2026 Bubbles Aro - MIT License
 set -e
 URL="https://github.com/AbhiramUpadrashta/Brevio/releases/latest/download/Brevio-mac.zip"
