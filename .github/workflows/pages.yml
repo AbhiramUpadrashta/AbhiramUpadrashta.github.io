@@ -1,0 +1,31 @@
+# Keeps old github.io links working after the products were renamed:
+# redirects to bubbles-hq.netlify.app and serves the newest Savora APK for phones on old versions.
+name: Publish redirects
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble site
+        run: |
+          cp -R site _site
+          curl -fL --retry 3 -o _site/Annakuber/Savora.apk https://github.com/AbhiramUpadrashta/Savora/releases/latest/download/Savora.apk
+          cp _site/Annakuber/Savora.apk _site/Annakuber/Annakuber.apk
+          ls -lR _site | head -40
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
