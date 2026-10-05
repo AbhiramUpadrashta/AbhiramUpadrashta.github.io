@@ -1,0 +1,7 @@
+# bubbles-hq.netlify.app (and bubbles.in.eu.org while it points at Netlify) moved to GitHub Pages.
+# Meeting links keep their #code, so old invites open the current Bubbles Meet.
+/veilon/*   https://abhiramupadrashta.github.io/Veilon/:splat   301!
+/savora/*   https://abhiramupadrashta.github.io/Savora/:splat   301!
+/brevio/*   https://abhiramupadrashta.github.io/Brevio/:splat   301!
+/nexora/*   https://abhiramupadrashta.github.io/Nexora/:splat   301!
+/*          https://abhiramupadrashta.github.io/:splat          301!
