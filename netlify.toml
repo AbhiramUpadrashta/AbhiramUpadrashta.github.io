@@ -1,0 +1,6 @@
+# Netlify only serves the redirect for the old bubbles-hq.netlify.app address.
+# Skip Netlify builds unless the redirect files change, so GitHub Pages updates don't use Netlify credits.
+[build]
+  publish = "netlify"
+  command = ""
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- netlify/ netlify.toml"
