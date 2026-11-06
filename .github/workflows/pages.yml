@@ -1,5 +1,5 @@
 # Publishes the Bubbles Aro company website (built from the private Bubbles-site repo) at
-# https://abhiramupadrashta.github.io/, plus redirects for old links and the Savora APK for old phones.
+# https://bubbles.foo.ng/, plus redirects for old links and the Savora APK for old phones.
 # SITE_KEY is a read-only deploy key for AbhiramUpadrashta/Bubbles-site.
 name: Publish Bubbles Aro website
 on:
@@ -23,7 +23,7 @@ jobs:
         run: |
           SHA="$(git -C src rev-parse HEAD)-$(git rev-parse HEAD)-$(curl -fsSL https://api.github.com/repos/AbhiramUpadrashta/Savora/releases/latest | python3 -c 'import sys,json;print(json.load(sys.stdin)["tag_name"])' || echo x)"
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
-          LIVE=$(curl -fsSL "https://abhiramupadrashta.github.io/build.txt?$(date +%s)" || true)
+          LIVE=$(curl -fsSL "https://bubbles.foo.ng/build.txt?$(date +%s)" || true)
           if [ "${{ github.event_name }}" = "schedule" ] && [ "$LIVE" = "$SHA" ]; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
       - name: Build
         if: steps.c.outputs.changed == 'true'
